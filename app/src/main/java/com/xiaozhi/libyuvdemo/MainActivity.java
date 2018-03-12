@@ -1,5 +1,6 @@
 package com.xiaozhi.libyuvdemo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
@@ -10,6 +11,6 @@ public class MainActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
-
+    findViewById(R.id.startCameraBtn).setOnClickListener(view -> startActivity(new Intent(this,CameraActivity.class)));
   }
 }
