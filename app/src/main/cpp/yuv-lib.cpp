@@ -89,9 +89,9 @@ JNIEXPORT jint JNICALL nativeNV21ToYV12(JNIEnv *env, jclass type, jbyteArray nv2
 
 extern "C"
 JNIEXPORT jint JNICALL nativeNV21ToRGB24(JNIEnv *env, jclass type,
-                                         jbyteArray yuvBytes_, jbyteArray rgb24Bytes_,
+                                         jbyteArray nv21_, jbyteArray rgb24Bytes_,
                                          jintArray hw_, jint orientation) {
-    jbyte *yuvBytes = env->GetByteArrayElements(yuvBytes_, NULL);
+    jbyte *yuvBytes = env->GetByteArrayElements(nv21_, NULL);
     jbyte *rgb24Bytes = env->GetByteArrayElements(rgb24Bytes_, NULL);
     jint *hw = env->GetIntArrayElements(hw_, NULL);
 
@@ -167,17 +167,17 @@ JNIEXPORT jint JNICALL nativeNV21ToRGB24(JNIEnv *env, jclass type,
     delete[] i420;
     delete[] dst_i420;
 
-    env->ReleaseByteArrayElements(yuvBytes_, yuvBytes, 0);
+    env->ReleaseByteArrayElements(nv21_, yuvBytes, 0);
     env->ReleaseByteArrayElements(rgb24Bytes_, rgb24Bytes, 0);
     env->ReleaseIntArrayElements(hw_, hw, 0);
     return 0;
 }
 
 extern "C"
-JNIEXPORT jint JNICALL nativeNV21ToBGR24(JNIEnv *env, jclass type, jbyteArray yuvBytes_,
+JNIEXPORT jint JNICALL nativeNV21ToBGR24(JNIEnv *env, jclass type, jbyteArray nv21_,
                                          jbyteArray rgb24Bytes_, jintArray hw_,
                                          jint orientation) {
-    jbyte *yuvBytes = env->GetByteArrayElements(yuvBytes_, NULL);
+    jbyte *yuvBytes = env->GetByteArrayElements(nv21_, NULL);
     jbyte *rgb24Bytes = env->GetByteArrayElements(rgb24Bytes_, NULL);
     jint *hw = env->GetIntArrayElements(hw_, NULL);
 
@@ -247,7 +247,7 @@ JNIEXPORT jint JNICALL nativeNV21ToBGR24(JNIEnv *env, jclass type, jbyteArray yu
     delete[] i420;
     delete[] dst_i420;
 
-    env->ReleaseByteArrayElements(yuvBytes_, yuvBytes, 0);
+    env->ReleaseByteArrayElements(nv21_, yuvBytes, 0);
     env->ReleaseByteArrayElements(rgb24Bytes_, rgb24Bytes, 0);
     env->ReleaseIntArrayElements(hw_, hw, 0);
 

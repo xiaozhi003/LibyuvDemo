@@ -14,15 +14,15 @@ public class ImageNdk {
    * A native method that is implemented by the 'native-lib' native library,
    * which is packaged with this application.
    */
-  public static native int nativeNV21ToRGB24(byte[] yuvBytes, byte[] rgb24Bytes, int[] hw, int orientation);
+  public static native int nativeNV21ToRGB24(byte[] nv21, byte[] rgb24Bytes, int[] hw, int orientation);
 
-  public static native int nativeNV21ToBGR24(byte[] yuvBytes, byte[] rgb24Bytes, int[] hw, int orientation);
+  public static native int nativeNV21ToBGR24(byte[] nv21, byte[] rgb24Bytes, int[] hw, int orientation);
 
-  public static native int nativeNV21ToNV12(byte[] nv21,byte[] nv12,int width,int height);
+  public static native int nativeNV21ToNV12(byte[] nv21, byte[] nv12, int width, int height);
 
-  public static native int nativeNV21ToI420(byte[] nv21,byte[] i420,int width,int height);
+  public static native int nativeNV21ToI420(byte[] nv21, byte[] i420, int width, int height);
 
-  public static native int nativeNV21ToYV12(byte[] nv21,byte[] yv12,int width,int height);
+  public static native int nativeNV21ToYV12(byte[] nv21, byte[] yv12, int width, int height);
 
   public static native void nativeUnInit();
 }
